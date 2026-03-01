@@ -13,9 +13,9 @@ public class PostService {
 
     {
         posts = new ArrayList<>();
-        posts.add(new Post("Недавно вышла новенькая Reanimal", new Date()));
-        posts.add(new Post("Ждем выхода кооперативной Burglin' Gnomes", new Date()));
-        posts.add(new Post("Сколько еще ждать TES6???", new Date()));
+        posts.add(new Post(0L,"Недавно вышла новенькая Reanimal", new Date()));
+        posts.add(new Post(1L,"Ждем выхода кооперативной Burglin' Gnomes", new Date()));
+        posts.add(new Post(2L,"Сколько еще ждать TES6???", new Date()));
     }
 
     public List<Post> listAllPosts() {
@@ -23,6 +23,7 @@ public class PostService {
     }
 
     public void create(String text) {
-        posts.add(new Post(text, new Date()));
+        Long newId = (long)posts.size();
+        posts.add(new Post(newId, text, new Date()));
     }
 }
